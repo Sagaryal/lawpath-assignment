@@ -5,13 +5,13 @@ export const typeDefs = `#graphql
   }
 
   type Locality {
-    id: Int!
-    category: String!
-    latitude: Float!
-    longitude: Float!
-    location: String!
-    postcode: Int!
-    state: String!
+    id: Int
+    category: String
+    latitude: Float
+    longitude: Float
+    location: String
+    postcode: Int
+    state: String
   }
 
   type Query {
