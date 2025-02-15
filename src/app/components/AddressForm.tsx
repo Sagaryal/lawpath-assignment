@@ -74,7 +74,7 @@ export default function AddressForm() {
               name="state"
               render={({ field }) => (
                 <FormItem>
-                  <Label>State</Label>
+                  <Label>State (Optional)</Label>
                   <Input
                     {...field}
                     placeholder="Enter state"

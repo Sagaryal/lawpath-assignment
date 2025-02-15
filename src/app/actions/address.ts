@@ -2,8 +2,8 @@
 
 import { API_SEARCH_URL, API_TOKEN } from "@/app/lib/constants";
 
-export async function fetchAddress(suburb: string, state: string) {
-  const API_URL = `${API_SEARCH_URL}?q=${suburb}&state=${state}`;
+export async function searchAddress(suburb: string, state: string = "") {
+  const API_URL = `${API_SEARCH_URL}?q=${suburb}&state=${state ? state : ""}`;
 
   try {
     const response = await fetch(API_URL, {
@@ -31,7 +31,7 @@ export async function verifyAddress(
   postcode: string
 ) {
   try {
-    const response = await fetchAddress(suburb, state);
+    const response = await searchAddress(suburb, state);
     const data = response?.localities?.locality;
 
     // Check if the API returned results
