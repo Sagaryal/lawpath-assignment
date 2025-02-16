@@ -1,4 +1,4 @@
-import AddressForm from "@/app/components/AddressForm";
+import AddressForm from "@/components/AddressForm";
 
 export default function Home() {
   return (
