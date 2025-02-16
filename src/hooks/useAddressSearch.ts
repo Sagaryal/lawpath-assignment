@@ -23,7 +23,6 @@ const useAddressSearch = () => {
     }
 
     const result = await response.json();
-    console.log({ result });
 
     if (result?.errors?.length > 0) {
       throw result.errors[0];
