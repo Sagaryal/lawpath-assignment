@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@apollo/client": "^3.13.0",
     "@apollo/server": "^4.11.3",
     "@as-integrations/next": "^3.2.0",
     "@hookform/resolvers": "^4.0.0",

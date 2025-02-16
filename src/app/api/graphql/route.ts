@@ -1,6 +1,5 @@
 import { ApolloServer } from "@apollo/server";
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
-import { startStandaloneServer } from "@apollo/server/standalone";
 import { resolvers } from "@/app/api/graphql/resolvers";
 import { typeDefs } from "@/app/api/graphql/schema";
 import { NextRequest } from "next/server";

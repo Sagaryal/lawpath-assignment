@@ -12,7 +12,6 @@ import { Form, FormField, FormItem, FormMessage } from "@/components/ui/form";
 import useAddressSearch from "@/hooks/useAddressSearch";
 
 export default function AddressForm() {
-  const [data, setData] = useState<any>(null);
   const [responseMessage, setResponseMessage] = useState<{
     type: "success" | "error";
     message: string;
@@ -31,7 +30,6 @@ export default function AddressForm() {
 
   async function onSubmit(formData: AddressType) {
     setResponseMessage(null);
-    setData(null);
 
     const suburb = formData.suburb;
     const state = formData.state.toUpperCase();
@@ -40,12 +38,12 @@ export default function AddressForm() {
     try {
       const data = await searchAddresses({ suburb, state });
 
+      // If no data is returned it means no record.
       if (!data || data.length === 0) {
         setResponseMessage({
           type: "error",
           message: `The suburb ${suburb} does not exist in the state ${state}.`,
         });
-        setData(null);
         return;
       }
 
@@ -56,15 +54,14 @@ export default function AddressForm() {
           type: "error",
           message: `The postcode ${postcode} does not match the suburb ${suburb}.`,
         });
-        setData(data);
         return;
       }
 
+      // Finally if there is matchedEntry then inputs are valid.
       setResponseMessage({
         type: "success",
         message: "The postcode, suburb, and state input are valid.",
       });
-      setData(data);
     } catch (error) {
       setResponseMessage({
         type: "error",
@@ -74,7 +71,7 @@ export default function AddressForm() {
   }
 
   return (
-    <Card className="max-w-md mx-auto mt-8">
+    <Card className="max-w-md w-full mx-auto mt-8">
       <CardHeader>
         <CardTitle>Validate Australian Postcode</CardTitle>
       </CardHeader>
@@ -131,17 +128,11 @@ export default function AddressForm() {
         {/* Response Messages */}
         {responseMessage && (
           <div
-            className={`mt-4 p-3 text-sm rounded ${
+            className={`mt-4 p-3 text-sm rounded max-w-full ${
               responseMessage.type === "error" ? "bg-red-100 text-red-700" : "bg-green-100 text-green-700"
             }`}
           >
             {responseMessage.message}
-          </div>
-        )}
-
-        {data && (
-          <div className="mt-4 p-4 bg-gray-100 rounded">
-            <pre className="text-sm">{JSON.stringify(data, null, 2)}</pre>
           </div>
         )}
       </CardContent>
