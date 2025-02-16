@@ -17,3 +17,8 @@ export type Locality = {
   postcode: Number;
   state: String;
 };
+
+export type GraphQLResponse<T> = {
+  data?: T;
+  errors?: { message: string }[];
+};
