@@ -58,12 +58,12 @@ After installing the dependencies and setting up environment variables, you can 
 npm run dev
 ```
 
+This will start the application locally at [http://localhost:3000](http://localhost:3000).
+
 ### 5. GraphQL endpoint
 
-The GraphQL API endpoint is available at: `/api/graphql`
+The GraphQL API endpoint is available at: `/api/graphql` i.e [http://localhost:3000/api/graphql](http://localhost:3000/api/graphql).
 You can use this endpoint to make GraphQL queries to the server.
-
-This will start the application locally at [http://localhost:3000](http://localhost:3000).
 
 ### 6. Access the application
 
