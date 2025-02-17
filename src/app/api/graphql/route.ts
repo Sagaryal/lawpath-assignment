@@ -7,7 +7,7 @@ import { NextRequest } from "next/server";
 // Create Apollo Server instance
 const server = new ApolloServer({ typeDefs, resolvers });
 
-// req has the type NextRequest
+// Create a request handler that integrates Apollo Server with Next.js API routes
 const handler = startServerAndCreateNextHandler<NextRequest>(server, {
   context: async (req) => ({ req }),
 });
